@@ -1,0 +1,37 @@
+# Genotype data (do not redistribute AADR; users must download from Harvard Dataverse)
+*.geno
+*.snp
+*.ind
+*.anno
+
+# F2 cache (large, regenerable)
+intermediate/f2_blocks/
+data/f2_blocks/
+work/
+
+# LaTeX build artifacts'
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.run.xml
+*.bcf
+*-blx.bib
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS / editor
+.DS_Store
+*~
+*.swp
+.vscode/
+.cursorindexingignore
+.specstory/

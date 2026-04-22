@@ -1,0 +1,8 @@
+target	CroatiaSerbia_RomanLocal	Aegean_BA_IA	Albania_BA_IA	Croatia_IA	Bulgaria_IA	Serbia_BA
+Croatian	fail 0.002	fail 5.89e-10	fail 5.69e-22	fail 5.22e-05	fail 2.32e-08	fail 7.79e-07
+Serbian_Serb	fail 0.012	fail 3.80e-09	fail 7.76e-32	fail 1.16e-06	fail 4.70e-12	fail 4.74e-07
+Romanian	fail 0.005	fail 7.60e-09	fail 4.79e-21	fail 4.02e-07	fail 3.03e-10	fail 1.45e-09
+Bulgarian	fail 0.002	fail 8.55e-16	fail 1.45e-29	fail 3.19e-08	fail 1.32e-09	fail 7.67e-10
+Albanian	fail 0.040	fail 5.27e-10	fail 5.12e-21	fail 4.43e-08	fail 5.72e-08	fail 5.59e-06
+Greek	fail 0.040	fail 2.69e-15	fail 1.15e-24	fail 1.47e-07	fail 4.49e-15	fail 7.66e-06
+Cypriot	fail 0.010	fail 3.78e-10	fail 3.42e-21	fail 1.13e-06	fail 1.31e-10	fail 3.04e-05

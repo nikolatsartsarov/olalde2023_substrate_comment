@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath, amssymb}
+\usepackage[expansion=false]{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{authblk}
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+}
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thesection}{S\arabic{section}}
+
+\title{Supplementary material for:\
+       Comment on Olalde et al.\ 2023:\
+       the omitted NorthMacedonia\_IA substrate in the 1-source qpAdm screen}
+
+\author{\textit{Nikola Tsartsarov}}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{NorthMacedonia\_IA samples}
+\label{si:samples}
+
+The 14 unique \texttt{NorthMacedonia\_IA} individuals used here were
+published in \citet{Lazaridis2022}. We introduce this cluster only as an
+additional 1-source candidate column under the same present-day qpAdm setup
+documented by \citet{Olalde2023}. As noted in the main text, this is not a
+later or peripheral source but one drawn from the same immediate authorial and
+evidentiary context as the published substrate set. We do not infer from that
+inclusion that it is a literal historical ancestor of any modern population.
+The exact sample IDs assigned to this and the other Olalde-defined source
+clusters are recorded in \nolinkurl{data/cluster_definitions.tsv}.
+
+\section{Strict target panel}
+\label{si:targets}
+
+The printed local 1-source rows in Olalde Data~S2 Table~8 are
+\texttt{Croatian}, \texttt{Serbian}, \texttt{Romanian},
+\texttt{Bulgarian}, \texttt{Albanian}, \texttt{Greek\_Macedonia},
+\texttt{Greek\_Peloponnese}, \texttt{Greek\_Cyclades}, \texttt{Cretan}, and
+\texttt{Greek\_Dodecanese}. This comment does not relabel those printed
+rows to nearby public proxies. In particular, it does not treat printed
+\texttt{Serbian} as identical to public \texttt{Serbian\_Serb}, and it does
+not collapse the printed regional Greek labels onto broader public labels such
+as \texttt{Greek} or \texttt{Cypriot}. The strict public-HO panel reported here
+therefore consists of the exact public labels \texttt{Croatian},
+\texttt{Serbian\_Serb}, \texttt{Romanian}, \texttt{Bulgarian},
+\texttt{Albanian}, \texttt{Greek}, and \texttt{Cypriot}. The retained target
+panel is shown in Table~\ref{tab:target-panel}.
+
+\input{tables/tableS2_target_panel}
+
+\section{Right-set composition}
+\label{si:rightset}
+
+The 13-population right-set used throughout this comment exactly matches the
+right-set used by \citet{Olalde2023} for present-day Balkan analysis (Olalde
+Data S1): \nolinkurl{OldAfrica}, \nolinkurl{Steppe_BA}, \nolinkurl{EHG},
+\nolinkurl{Iron_Gates_HG}, \nolinkurl{Anatolia_N}, \nolinkurl{Iran_N},
+\nolinkurl{Iberia_IA}, \nolinkurl{Greece_Minoan},
+\nolinkurl{CroatiaMLBA_SloveniaIA}, \nolinkurl{Netherlands_MBA_IA},
+\nolinkurl{Steppe_IA}, \nolinkurl{SoutheastTurkey_Byzantine}, and
+\nolinkurl{Baltic_BA}.
+
+\section{Source-cluster composition}
+\label{si:sources}
+
+Olalde-defined source clusters were reconstructed by individual ID match and
+are recorded in \texttt{data/cluster\_definitions.tsv}. The additional source
+\texttt{NorthMacedonia\_IA} is taken with its default AADR label. In the local
+1-source part of printed Table~8, the published Bulgaria source column is
+labeled \texttt{Bulgaria\_EIA}; in this repository it is implemented with the
+public cluster label \texttt{Bulgaria\_IA}.
+
+\section{Full 1-source matrix}
+
+Table~\ref{tab:oneway-full} gives the complete 1-source qpAdm p-value matrix
+for the retained strict target panel. Entries in bold indicate non-rejection
+at \(p > 0.05\).
+
+\input{tables/tableS1_oneway_full}
+
+\section{Interpretive caution}
+
+A 1-source qpAdm pass under this right-set is a non-rejection statement, not
+a proof of continuity. The contribution of this comment is methodological
+rather than historical: within this strict public-label restatement, it shows
+that the published local-substrate set is not exhaustive, because an omitted
+Iron Age Balkan candidate changes the pass/fail pattern materially when
+inserted into the same first-stage test.
+
+\section{Pipeline reproducibility}
+
+The reproducible pipeline consists of the following steps:
+\nolinkurl{scripts/02_build_ind_and_f2cache.R},
+\nolinkurl{scripts/03_qpadm_run.R},
+\nolinkurl{scripts/10_figures.R}, and
+\nolinkurl{scripts/11_tables.R}.
+
+\bibliography{refs}
+
+\end{document}
