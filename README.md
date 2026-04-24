@@ -161,6 +161,15 @@ The checked-in file `results/T9_allsnps_sensitivity.tsv` is retained as a
 cached upstream result used by `scripts/03_qpadm_run.R`; it is not raw public
 genotype data.
 
+## Cite this work
+
+- Version-specific DOI: [`10.5281/zenodo.19742771`](https://doi.org/10.5281/zenodo.19742771)
+- All-versions DOI: [`10.5281/zenodo.19742770`](https://doi.org/10.5281/zenodo.19742770)
+
+Suggested citation:
+
+> Tsartsarov, N. (2026). *Comment on "A genetic history of the Balkans from Roman frontier to Slavic migrations": the omitted NorthMacedonia_IA substrate in the 1-source qpAdm screen* (Version 1). Zenodo. https://doi.org/10.5281/zenodo.19742771
+
 ## License
 
 - Code: MIT
