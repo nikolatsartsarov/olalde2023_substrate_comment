@@ -1,4 +1,4 @@
-# Comment on Olalde et al. 2023: the omitted NorthMacedonia_IA substrate in the 1-source qpAdm screen
+# Comment on "A genetic history of the Balkans from Roman frontier to Slavic migrations": the omitted NorthMacedonia_IA substrate in the 1-source qpAdm screen
 
 This repository accompanies a methodological comment on `Olalde et al. 2023`.
 It addresses one narrow question: can the published present-day **1-source**
