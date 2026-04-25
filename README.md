@@ -29,6 +29,12 @@ under the documented Human Origins / `allsnps` setup and then adds
 column still fails every retained target row, while the added
 `NorthMacedonia_IA` column passes every retained row.
 
+An additional `allsnps=FALSE` sensitivity run preserves that pass/fail pattern:
+all six published substrate columns still fail all retained target rows, and
+`NorthMacedonia_IA` still passes all seven. The p-values are not identical; the
+closest retained row is `Serbian_Serb`, where `NorthMacedonia_IA` remains just
+above the nominal threshold (`p = 0.05019`).
+
 The claim is narrow but important: the published first-stage local-substrate
 screen was not exhaustive even at the simplest level of the model family. A
 1-source pass is interpreted only as non-rejection under this right-set; it is
@@ -75,11 +81,15 @@ olalde2023_substrate_comment/
     T9_allsnps_sensitivity.tsv
     table8_oneway_reproduced_*.tsv
     table8_oneway_with_northmac_*.tsv
+    table8_oneway_with_northmac_allsnps_false_*.tsv
     table8_oneway_summary.tsv
+    table8_oneway_summary_allsnps_false.tsv
+    table8_oneway_allsnps_true_false_comparison.tsv
     table8_target_panel.tsv
   scripts/
     02_build_ind_and_f2cache.R
     03_qpadm_run.R
+    05_qpadm_run_allsnps_false_sensitivity.R
     10_figures.R
     11_tables.R
     _paths.R
@@ -105,6 +115,7 @@ limits stated in the manuscript. In particular:
 ```bash
 Rscript scripts/02_build_ind_and_f2cache.R
 Rscript scripts/03_qpadm_run.R
+Rscript scripts/05_qpadm_run_allsnps_false_sensitivity.R
 Rscript scripts/10_figures.R
 Rscript scripts/11_tables.R
 ```
@@ -120,6 +131,10 @@ Rscript scripts/11_tables.R
 - [`results/table8_oneway_with_northmac_long.tsv`](results/table8_oneway_with_northmac_long.tsv)
 - [`results/table8_oneway_with_northmac_wide.tsv`](results/table8_oneway_with_northmac_wide.tsv)
 - [`results/table8_oneway_summary.tsv`](results/table8_oneway_summary.tsv)
+- [`results/table8_oneway_with_northmac_allsnps_false_long.tsv`](results/table8_oneway_with_northmac_allsnps_false_long.tsv)
+- [`results/table8_oneway_with_northmac_allsnps_false_wide.tsv`](results/table8_oneway_with_northmac_allsnps_false_wide.tsv)
+- [`results/table8_oneway_summary_allsnps_false.tsv`](results/table8_oneway_summary_allsnps_false.tsv)
+- [`results/table8_oneway_allsnps_true_false_comparison.tsv`](results/table8_oneway_allsnps_true_false_comparison.tsv)
 - [`results/table8_target_panel.tsv`](results/table8_target_panel.tsv)
 - [`manuscript/tables/table1_main.tex`](manuscript/tables/table1_main.tex)
 - [`manuscript/tables/tableS1_oneway_full.tex`](manuscript/tables/tableS1_oneway_full.tex)
