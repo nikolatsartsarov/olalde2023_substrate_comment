@@ -110,11 +110,22 @@ olalde_sources <- c(
   "Bulgaria_IA", "Serbia_BA"
 )
 
+# Optional Hungary IA direct labels supplied via file/env:
+hungary_ia_sources <- read_population_list(
+  path = HUNGARY_IA_CANDIDATES,
+  env_name = "OLALDE_HUNGARY_IA_SOURCES"
+)
+if (length(hungary_ia_sources) > 0) {
+  cat("[4b] Hungary IA candidate labels requested:\n")
+  print(hungary_ia_sources)
+}
+
 # Extension sources we want to test:
 extension_sources <- c(
   "NorthMacedonia_IA",            # AADR direct label
   "Albania_BA_IA_pool"            # pool of Cinamak_IA + Cinamak_BA_IA
 )
+extension_sources <- unique(c(extension_sources, hungary_ia_sources))
 
 needed_pops <- unique(c(
   modern_targets, olalde_right_set, olalde_sources, extension_sources

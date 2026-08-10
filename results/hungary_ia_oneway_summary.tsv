@@ -1,0 +1,8 @@
+target	best_published_source	best_published_p	best_hungary_source	best_hungary_p	any_hungary_pass
+Croatian	CroatiaSerbia_RomanLocal	0.00163120562862023	Hungary_IA_Scythian-o	0.8206866670997477	TRUE
+Serbian_Serb	CroatiaSerbia_RomanLocal	0.01206584494186876	Hungary_LateC_IA_c_Baden	0.42737394570937415	TRUE
+Romanian	CroatiaSerbia_RomanLocal	0.00499605795599995	Hungary_IA_Scythian-o	0.8597599334185284	TRUE
+Bulgarian	CroatiaSerbia_RomanLocal	0.00220120255848968	Hungary_LBA_IA	0.3701602624072998	TRUE
+Albanian	CroatiaSerbia_RomanLocal	0.04007887182699127	Hungary_LateC_IA_c_Baden	0.6652619715484462	TRUE
+Greek	CroatiaSerbia_RomanLocal	0.04005057250149366	Hungary_IA_Scythian-o	0.5920378396006727	TRUE
+Cypriot	CroatiaSerbia_RomanLocal	0.00981355878018485	Hungary_IA_Scythian-o	0.71109706882138	TRUE

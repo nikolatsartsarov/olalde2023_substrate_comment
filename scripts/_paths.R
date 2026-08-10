@@ -17,6 +17,15 @@
 ##                          modified .ind, the f2 cache, and Olalde
 ##                          ID->cluster TSVs). Large; can live anywhere.
 ##                          Default: <REPO_DIR>/work/
+##   OLALDE_HUNGARY_IA_CANDIDATES
+##                          Optional path to a TSV or plain-text file listing
+##                          Hungary Iron Age candidate population labels.
+##                          Default:
+##                          <REPO_DIR>/data/hungary_ia_candidates.tsv
+##   OLALDE_HUNGARY_IA_SOURCES
+##                          Optional comma/newline/semicolon-separated list of
+##                          Hungary Iron Age population labels. These labels
+##                          are appended to any file-based candidate list.
 ##   OLALDE_S2_XLSX         Path to Olalde et al. 2023 Supplementary
 ##                          Data S2 (NIHMS1944038-supplement-Data_S2.xlsx).
 ##                          Required only by scripts 01 and 14.
@@ -31,6 +40,54 @@
 .getenv_or <- function(name, default = NULL) {
   v <- Sys.getenv(name, unset = "")
   if (nzchar(v)) v else default
+}
+
+.split_list_env <- function(value) {
+  if (!nzchar(value)) return(character())
+  parts <- unlist(strsplit(value, "[,\n;]", perl = TRUE), use.names = FALSE)
+  parts <- trimws(parts)
+  parts[nzchar(parts)]
+}
+
+read_population_list <- function(path = NULL, env_name = NULL, default = character()) {
+  vals <- default
+
+  if (!is.null(env_name) && nzchar(env_name)) {
+    vals <- c(vals, .split_list_env(Sys.getenv(env_name, unset = "")))
+  }
+
+  if (!is.null(path) && nzchar(path) && file.exists(path)) {
+    file_vals <- tryCatch({
+      tab <- utils::read.delim(
+        path,
+        sep = "\t",
+        header = TRUE,
+        stringsAsFactors = FALSE,
+        comment.char = ""
+      )
+      if ("source" %in% names(tab)) {
+        tab$source
+      } else if (ncol(tab) >= 1L) {
+        tab[[1L]]
+      } else {
+        character()
+      }
+    }, error = function(e) {
+      lines <- readLines(path, warn = FALSE)
+      lines <- trimws(lines)
+      lines <- lines[nzchar(lines) & !startsWith(lines, "#")]
+      if (length(lines) && identical(tolower(lines[[1L]]), "source")) {
+        lines[-1L]
+      } else {
+        lines
+      }
+    })
+    vals <- c(vals, file_vals)
+  }
+
+  vals <- trimws(as.character(vals))
+  vals <- vals[nzchar(vals)]
+  unique(vals)
 }
 
 # ----------------------------------------------------------------------
@@ -111,6 +168,10 @@ TABLES_DIR  <- file.path(REPO_DIR, "manuscript", "tables")
 DATA_DIR    <- file.path(REPO_DIR, "data")
 PAPER_DIR   <- REPO_DIR
 CLUSTER_DEF <- file.path(DATA_DIR, "cluster_definitions.tsv")
+HUNGARY_IA_CANDIDATES <- .getenv_or(
+  "OLALDE_HUNGARY_IA_CANDIDATES",
+  file.path(DATA_DIR, "hungary_ia_candidates.tsv")
+)
 OUT_SUMMARY <- file.path(DATA_DIR, "id_reconciliation.tsv")
 
 dir.create(RESULTS_DIR, recursive = TRUE, showWarnings = FALSE)
